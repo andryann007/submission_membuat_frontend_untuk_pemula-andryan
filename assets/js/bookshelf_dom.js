@@ -51,7 +51,7 @@ function addBookList() {
 
     const bookTitle = document.getElementById("inputBookTitle").value;
     const bookAuthor = document.getElementById("inputBookAuthor").value;
-    const bookYear = document.getElementById("inputBookPublishedYear").value;
+    const bookYear = Number(document.getElementById("inputBookPublishedYear").value);
     const bookStatus = document.getElementById("inputBookIsReaded").checked;
 
     if (bookStatus === false) {
