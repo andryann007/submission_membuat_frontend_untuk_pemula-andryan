@@ -52,8 +52,6 @@ function showInputModal() {
         const inputModalContentChild = inputModalContent.children;
         const midIndex = Math.floor(inputModalContentChild.length / 2);
         inputModalContent.insertBefore(modalBody, inputModalContentChild[midIndex]);
-
-        hideInputModal();
     } else {
         showConfirmationModal();
         inputModal.classList.remove("show");

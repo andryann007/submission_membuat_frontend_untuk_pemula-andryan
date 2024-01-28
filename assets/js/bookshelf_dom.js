@@ -9,15 +9,15 @@ const btnSaveBook = document.getElementById('btnSaveBook');
 function showData(title, author, year, isComplete) {
     const bookTitle = document.createElement("h5");
     bookTitle.classList.add("card-title");
-    bookTitle.innerText = title;
+    bookTitle.innerText = "Judul Buku : " + title;
 
     const bookAuthor = document.createElement("div");
     bookAuthor.classList.add("card-subtitle");
-    bookAuthor.innerText = author;
+    bookAuthor.innerText = "Penulis Buku : " + author;
 
     const bookYear = document.createElement("div");
     bookYear.classList.add("card-text");
-    bookYear.innerText = year;
+    bookYear.innerText = "Tahun Terbit : " + year;
 
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("d-flex", "justify-content-end", "mt-3", "gap-3");
@@ -25,9 +25,9 @@ function showData(title, author, year, isComplete) {
     const cardHeader = document.createElement("div");
     cardHeader.classList.add("card-header");
     if (isComplete == true) {
-        cardHeader.innerText = txtSudahBaca;
+        cardHeader.innerText = "Status : " + txtSudahBaca;
     } else {
-        cardHeader.innerText = txtBelumBaca;
+        cardHeader.innerText = "Status : " + txtBelumBaca;
     }
 
     const cardBody = document.createElement("div");
