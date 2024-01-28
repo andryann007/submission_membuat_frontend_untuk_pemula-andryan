@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="id">
+  <head>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf Website</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            id="navbarToggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Main Navbar Toggle"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#inputBookData">Input</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#searchBookData">Search</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#notReadedBook">Belum Dibaca</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#readedBook">Selesai Dibaca</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="jumbotron p-3 bg-dark opacity-75 text-white text-center"
+        id="home"
+      >
+        <p>Hi everyone 🖐, my name is</p>
+        <h1 class="mt-3 mb-3">Andryan</h1>
+        <p>This is My Bookshelf App</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="container-fluid bg-dark" id="mainContent">
+        <div class="row">
+          <aside class="col-md-4 mb-4 align-self-stretch">
+            <article class="profile card m-3 h-100">
+              <header class="p-3">
+                <h1 class="card-title text-center bold fs-3">My Profile</h1>
+                <img
+                  class="card-img mb-3"
+                  src="/assets/img/profile.png"
+                  alt="Profile Image"
+                />
+                <p class="card-text">Full Name : Andryan</p>
+                <p class="card-text">Dicoding Username : @andryann</p>
+                <p class="card-text">Email : andryancoolz@gmail.com</p>
+              </header>
+            </article>
+          </aside>
+
+          <div class="col-md-8">
+            <article class="card m-3" id="inputBookData">
+              <form id="inputForm">
+                <h1 class="card-title text-center fs-4 p-3">Input Data Buku</h1>
+                <div class="p-3">
+                  <label class="form-label" for="inputBookTitle"
+                    >Judul Buku :</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputBookTitle"
+                    aria-describedby="titleHelp"
+                    required
+                  />
+                  <div id="titleHelp" class="form-text">
+                    Masukkan judul buku.
+                  </div>
+                </div>
+                <div class="p-3">
+                  <label class="form-label" for="inputBookAuthor"
+                    >Penulis Buku :</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputBookAuthor"
+                    aria-describedby="authorHelp"
+                    required
+                  />
+                  <div id="authorHelp" class="form-text">
+                    Masukkan penulis buku.
+                  </div>
+                </div>
+                <div class="p-3">
+                  <label class="form-label" for="inputBookPublishedYear"
+                    >Tahun Terbit Buku :</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="inputBookPublishedYear"
+                    aria-describedby="publishedYearHelp"
+                    required
+                  />
+                  <div id="publishedYearHelp" class="form-text">
+                    Masukkan tahun terbit buku.
+                  </div>
+                </div>
+                <div class="p-3">
+                  <label class="form-label" for="inputBookIsReaded"
+                    >Sudah Baca :</label
+                  >
+                  <input
+                    type="checkbox"
+                    class="form-check"
+                    id="inputBookIsReaded"
+                    aria-describedby="isReadedHelp"
+                  />
+                  <div id="isReadedHelp" class="form-text">
+                    Apakah buku sudah dibaca.
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onclick="showInputModal()"
+                  class="btn btn-success float-end m-3"
+                >
+                  Submit
+                </button>
+              </form>
+            </article>
+
+            <article class="card m-3" id="searchBookData">
+              <div id="search-data">
+                <h1 class="card-title text-center fs-4 p-3">Cari Data Buku</h1>
+                <div class="p-3">
+                  <label class="form-label" for="searchBookTitle"
+                    >Judul Buku :</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="searchBookTitle"
+                    aria-describedby="titleHelp"
+                    required
+                  />
+                  <div id="titleHelp" class="form-text">
+                    Masukkan judul buku.
+                  </div>
+                </div>
+
+                <button
+                  id="btnSearchData"
+                  class="btn btn-success float-end m-3"
+                  onclick="doBookSearch()"
+                >
+                  Search
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <article class="card m-3" id="notReadedBook">
+              <h1 class="card-title text-center fs-4 p-3">
+                Rak Buku Belum Dibaca
+              </h1>
+              <div id="unreads" class="list-book"></div>
+            </article>
+          </div>
+
+          <div class="col-md-6">
+            <article class="card m-3" id="readedBook">
+              <h1 class="card-title text-center fs-4 p-3">
+                Rak Buku Selesai Dibaca
+              </h1>
+
+              <div id="reads" class="list-book"></div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <form id="inputModal" class="modal fade bg-dark" tabindex="-1">
+        <div id="inputBook" class="modal-dialog modal-dialog-centered">
+          <div id="inputModalContent" class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Input Data Buku</h5>
+              <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                onclick="hideInputModal()"
+              ></button>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                onclick="hideInputModal()"
+              >
+                Batal
+              </button>
+              <button
+                id="btnSaveBook"
+                type="submit"
+                onclick="addBookList()"
+                class="btn btn-success"
+              >
+                Simpan
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div id="confirmationModal" class="modal fade" tabindex="-1">
+        <div id="confirmation" class="modal-dialog modal-dialog-centered">
+          <div id="confirmationContent" class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Data Buku Tidak Lengkap</h5>
+              <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                onclick="hideConfirmationModal()"
+              ></button>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-success"
+                onclick="hideConfirmationModal()"
+              >
+                Ok
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="deleteModal" class="modal fade" tabindex="-1">
+        <div id="deleteBook" class="modal-dialog modal-dialog-centered">
+          <div id="deleteModalContent" class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Hapus Data Buku</h5>
+              <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                onclick="hideDeleteModal()"
+              ></button>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                onclick="hideDeleteModal()"
+              >
+                Batal
+              </button>
+              <button id="btnDeleteBook" class="btn btn-success">Hapus</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="moveToReadModal" class="modal fade" tabindex="-1">
+        <div id="moveToReadBook" class="modal-dialog modal-dialog-centered">
+          <div id="moveToReadContent" class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Memindahkan Buku ke Rak Sudah Baca</h5>
+              <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                onclick="hideMoveToReadModal()"
+              ></button>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                onclick="hideMoveToReadModal()"
+              >
+                Batal
+              </button>
+              <button id="btnMoveToRead" class="btn btn-success">Pindah</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="moveToUnreadModal" class="modal fade" tabindex="-1">
+        <div id="moveToUnreadBook" class="modal-dialog modal-dialog-centered">
+          <div id="moveToUnreadContent" class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Memindahkan Buku ke Rak Belum Baca</h5>
+              <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                onclick="hideMoveToUnreadModal()"
+              ></button>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                onclick="hideMoveToUnreadModal()"
+              >
+                Batal
+              </button>
+              <button id="btnMoveToUnread" class="btn btn-success">
+                Pindah
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="card-footer p-3 bg-dark text-white text-center bold">
+      <span>Created By Andryan in 2024</span>
+    </footer>
+
+    <script src="/assets/js/bookshelf_data.js"></script>
+    <script src="/assets/js/bookshelf_dom.js"></script>
+    <script src="/assets/js/navbar.js"></script>
+    <script src="/assets/js/modal.js"></script>
+    <script src="/assets/js/scripts.js"></script>
+  </body>
+</html>
