@@ -211,11 +211,7 @@ function doBookSearch() {
             if (unreadBookCard.classList.contains('d-none')) {
                 unreadBookCard.classList.remove('d-none');
             }
-            unreadBookCard.classList.add("d-block");
         } else {
-            if (unreadBookCard.classList.contains('d-block')) {
-                unreadBookCard.classList.remove('d-block');
-            }
             unreadBookCard.classList.add("d-none");
         }
     }
@@ -227,11 +223,7 @@ function doBookSearch() {
             if (readedBookCard.classList.contains('d-none')) {
                 readedBookCard.classList.remove('d-none');
             }
-            readedBookCard.classList.add("d-block");
         } else {
-            if (readedBookCard.classList.contains('d-block')) {
-                readedBookCard.classList.remove('d-block');
-            }
             readedBookCard.classList.add("d-none");
         }
     }

@@ -17,6 +17,9 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
+          <a class="navbar-brand m-3 text-bold" id="navbarTitle" href="#home"
+            >My Bookshelf App</a
+          >
           <button
             class="navbar-toggler"
             id="navbarToggler"
@@ -29,7 +32,7 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="mainNavbar">
+          <div class="collapse navbar-collapse p-2" id="mainNavbar">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a class="nav-link" href="#home">Home</a>
@@ -64,25 +67,25 @@
     <main>
       <div class="container-fluid bg-dark" id="mainContent">
         <div class="row">
-          <aside class="col-md-4 mb-4 align-self-stretch">
+          <aside class="col-md-6 col-lg-4 mb-4 align-self-stretch">
             <article class="profile card m-3 h-100" id="myProfile">
-              <header class="p-3">
+              <header class="card bg-light p-3 opacity-75">
                 <h1 class="card-title text-center bold fs-3">My Profile</h1>
                 <img
-                  class="card-img mb-3"
+                  class="card-img-top mb-3"
                   src="/assets/img/profile.png"
                   alt="Profile Image"
                 />
-                <p class="card-text">Full Name : Andryan</p>
-                <p class="card-text">Dicoding Username : @andryann</p>
-                <p class="card-text">Email : andryancoolz@gmail.com</p>
+                <p class="card-text fw-bold">Full Name : Andryan</p>
+                <p class="card-text fw-bold">Dicoding Username : @andryann</p>
+                <p class="card-text fw-bold">Email : andryancoolz@gmail.com</p>
               </header>
             </article>
           </aside>
 
-          <div class="col-md-8">
+          <div class="col-md-6 col-lg-8">
             <article class="card m-3" id="inputBookData">
-              <form id="inputForm">
+              <form class="card bg-light opacity-75" id="inputForm">
                 <h1 class="card-title text-center fs-4 p-3">Input Data Buku</h1>
                 <div class="p-3">
                   <label class="form-label" for="inputBookTitle"
@@ -147,15 +150,15 @@
                 <button
                   type="button"
                   onclick="showInputModal()"
-                  class="btn btn-success float-end m-3"
+                  class="btn btn-success w-25 ms-auto m-3"
                 >
-                  Submit
+                  Input
                 </button>
               </form>
             </article>
 
             <article class="card m-3" id="searchBookData">
-              <div id="search-data">
+              <div id="card bg-light opacity-75 search-data">
                 <h1 class="card-title text-center fs-4 p-3">Cari Data Buku</h1>
                 <div class="p-3">
                   <label class="form-label" for="searchBookTitle"
@@ -175,7 +178,7 @@
 
                 <button
                   id="btnSearchData"
-                  class="btn btn-success float-end m-3"
+                  class="btn btn-success w-25 float-end m-3"
                   onclick="doBookSearch()"
                 >
                   Search
@@ -220,7 +223,7 @@
               ></button>
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer gap-3">
               <button
                 type="button"
                 class="btn btn-danger"
@@ -256,7 +259,7 @@
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-success"
+                class="btn btn-success w-25"
                 onclick="hideConfirmationModal()"
               >
                 Ok
@@ -278,15 +281,17 @@
                 onclick="hideDeleteModal()"
               ></button>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer gap-3">
               <button
                 type="button"
-                class="btn btn-danger"
+                class="btn btn-danger w-25"
                 onclick="hideDeleteModal()"
               >
                 Batal
               </button>
-              <button id="btnDeleteBook" class="btn btn-success">Hapus</button>
+              <button id="btnDeleteBook" class="btn btn-success w-25">
+                Hapus
+              </button>
             </div>
           </div>
         </div>
@@ -304,15 +309,17 @@
                 onclick="hideMoveToReadModal()"
               ></button>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer gap-3">
               <button
                 type="button"
-                class="btn btn-danger"
+                class="btn btn-danger w-25"
                 onclick="hideMoveToReadModal()"
               >
                 Batal
               </button>
-              <button id="btnMoveToRead" class="btn btn-success">Pindah</button>
+              <button id="btnMoveToRead" class="btn btn-success w-25">
+                Pindah
+              </button>
             </div>
           </div>
         </div>
@@ -330,15 +337,15 @@
                 onclick="hideMoveToUnreadModal()"
               ></button>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer gap-3">
               <button
                 type="button"
-                class="btn btn-danger"
+                class="btn btn-danger w-25"
                 onclick="hideMoveToUnreadModal()"
               >
                 Batal
               </button>
-              <button id="btnMoveToUnread" class="btn btn-success">
+              <button id="btnMoveToUnread" class="btn btn-success w-25">
                 Pindah
               </button>
             </div>
