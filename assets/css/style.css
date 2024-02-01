@@ -20,11 +20,20 @@
   object-position: center;
 }
 
-.card {
+#myProfile,
+#inputBookData,
+#searchBookData,
+#notReadedBook,
+#readedBook {
   background-image: url("/assets/img/white-bg.png");
   object-fit: cover;
   object-position: center;
   opacity: 90%;
+}
+
+#notReadedBook,
+#readedBook {
+  opacity: 100%;
 }
 
 footer {

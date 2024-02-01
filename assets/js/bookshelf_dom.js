@@ -7,26 +7,33 @@ const txtHapus = "Hapus";
 const btnSaveBook = document.getElementById('btnSaveBook');
 
 function showData(title, author, year, isComplete) {
+    const bookIcon = document.createElement("img");
+    bookIcon.classList.add("card-img-top", "mx-auto", "w-50", "p-3");
+
     const bookTitle = document.createElement("h5");
-    bookTitle.classList.add("card-title");
+    bookTitle.classList.add("card-title", "text-center", "fs-4");
     bookTitle.innerText = "Judul Buku : " + title;
 
     const bookAuthor = document.createElement("div");
-    bookAuthor.classList.add("card-subtitle");
+    bookAuthor.classList.add("card-subtitle", "text-center", "fs-5");
     bookAuthor.innerText = "Penulis Buku : " + author;
 
     const bookYear = document.createElement("div");
-    bookYear.classList.add("card-text");
+    bookYear.classList.add("card-text", "text-center", "fs-5");
     bookYear.innerText = "Tahun Terbit : " + year;
 
     const buttonContainer = document.createElement("div");
     buttonContainer.classList.add("d-flex", "justify-content-end", "mt-3", "gap-3");
 
     const cardHeader = document.createElement("div");
-    cardHeader.classList.add("card-header");
+    cardHeader.classList.add("card-header", "text-center", "fw-bold", "fs-4");
     if (isComplete == true) {
+        bookIcon.src = "/assets/img/readed-book.png"
+        bookIcon.alt = "Readed Book Image"
         cardHeader.innerText = "Status : " + txtSudahBaca;
     } else {
+        bookIcon.src = "/assets/img/unreaded-book.png"
+        bookIcon.alt = "Unreaded Book Image"
         cardHeader.innerText = "Status : " + txtBelumBaca;
     }
 
@@ -35,9 +42,10 @@ function showData(title, author, year, isComplete) {
     cardBody.append(bookTitle, bookAuthor, bookYear);
 
     const cardContainer = document.createElement("div");
-    cardContainer.classList.add("card", "p-3");
+    cardContainer.classList.add("card", "p-3", "m-3", "bg-light", "opacity-75");
     cardContainer.append(
         cardHeader,
+        bookIcon,
         cardBody,
         createButtonContainer(isComplete)
     );
@@ -99,6 +107,7 @@ function createButton(buttonClass1, buttonClass2, innerText, eventListener) {
     button.classList.add(buttonClass1, buttonClass2);
     button.classList.add("text-center", "m-2");
     button.innerText = innerText;
+
     button.addEventListener("click", function (event) {
         eventListener(event);
     });
